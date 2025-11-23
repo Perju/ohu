@@ -1,68 +1,109 @@
 <!doctype html>
 <html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Ruleta</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-        <style type="text/css" media="screen">
-         form {margin: 4px;}
-         input {margin: 4px;}
-         .lista {
-             width: 400px;
-             height: 400px;
-             border: solid 1px black;
-             padding: 0 8px 0 8px;
-         }
-         .lista button {
-             margin-left: 4px;
-             float: right;
-         }
-        </style>
-        <script type="text/javascript">
-         let listica;
-         function agregar() {
-             let p = document.createElement('p');
-             let nombre = document.getElementById('nombre')
-             p.textContent = nombre.value;
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Ruleta</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-             let button = document.createElement('button');
-             button.textContent = "X";
-             button.onclick = (event) => {
-                 console.log(event.target.parentElement);
-                 event.target.parentElement.remove();
-             }
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="ruleta.css" type="text/css" media="screen" />
+    <style type="text/css" media="screen">
+    </style>
+    <script src="ruleta.js"></script>
+</head>
 
-             p.appendChild(button);
-             
-             let lista = document.getElementById('lista');
-             lista.appendChild(p);
-         }
-         function elegir_ganador() {
-             let ganador = listica[Math.floor(Math.random() * listica.length)];
-             alert("El ganador es: " + ganador.innerText);
-         }
-         window.onload = (event) => {
-            listica = document.getElementById("lista").children;
-            console.log(listica);
-         }
-        </script>
+<body>
 
+    <div class="content">
+        <div class="ruleta-form">
+            <h1>Ruleta</h1>
+            <form>
+                <input id="nombre" type="text" name="nombre" value="" placeholder="Nombre" />
+                <input type="button" value="agregar" onclick="agregar()" />
+                <br />
+                <input type="button" value="elegir_ganador" onclick="elegir_ganador()" />
+                <input type="button" value="limpiar_ruleta" onclick="limpiar_ruleta()" />
+            </form>
 
-    </head>
-    <body>
-        <h1>Ruleta</h1>
-        <form>
-            <input id="nombre" type="text" name="nombre" value="" placeholder="Nombre" />
-            <input type="button" value="agregar" onclick="agregar()"/>
-            <br/>
-            <input type="button" value="elegir_ganador" onclick="elegir_ganador()"/>
-        </form>
+            <div class="lista">
+                <ul id="lista">
+                    <li>
+                        <span>Personita</span><button onclick="botonClickBorrar(event)">X</button>
+                    </li>
+                    <li>
+                        <span>Perju</span><button onclick="botonClickBorrar(event)">X</button>
+                    </li>
+                    <li>
+                        <span>eLDeSiempre</span><button onclick="botonClickBorrar(event)">X</button>
+                    </li>
+                    <li>
+                        <span>Stateatendan</span><button onclick="botonClickBorrar(event)">X</button>
+                    </li>
+                    <li>
+                        <span>MrCali</span><button onclick="botonClickBorrar(event)">X</button>
+                    </li>
+                    <li>
+                        <span>Spizof</span><button onclick="botonClickBorrar(event)">X</button>
+                    </li>
+                    <li>
+                        <span>Blu</span><button onclick="botonClickBorrar(event)">X</button>
+                    </li>
+                </ul>
+            </div>
 
-        <div id="lista" class="lista">
         </div>
-    </body>
+        <div id="ruleta" class="container-ruleta">
+            <ul id="ruleta-main" class="ruleta main">
+                <li>
+                    <span>Personita</span><button>X</button>
+                </li>
+                <li>
+                    <span>Perju</span><button>X</button>
+                </li>
+                <li>
+                    <span>eLDeSiempre</span><button>X</button>
+                </li>
+                <li>
+                    <span>Stateatendan</span><button>X</button>
+                </li>
+                <li>
+                    <span>MrCali</span><button>X</button>
+                </li>
+                <li>
+                    <span>Spizof</span><button>X</button>
+                </li>
+                <li>
+                    <span>Blu</span><button>X</button>
+                </li>
+            </ul>
+            <ul id="ruleta-aux" class="ruleta aux">
+                <li>
+                    <span>Personita</span><button>X</button>
+                </li>
+                <li>
+                    <span>Perju</span><button>X</button>
+                </li>
+                <li>
+                    <span>eLDeSiempre</span><button>X</button>
+                </li>
+                <li>
+                    <span>Stateatendan</span><button>X</button>
+                </li>
+                <li>
+                    <span>MrCali</span><button>X</button>
+                </li>
+                <li>
+                    <span>Spizof</span><button>X</button>
+                </li>
+                <li>
+                    <span>Blu</span><button>X</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+
 </html>

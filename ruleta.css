@@ -1,0 +1,92 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row;
+    gap: 32px;
+}
+.ruleta-form {
+    display: flex;
+    flex-flow: column;
+}
+form {
+    margin: 4px;
+}
+input {
+    margin: 4px;
+}
+
+.lista {
+    width: 400px;
+    height: 400px;
+    border: solid 1px black;
+    padding: 0 8px 0 8px;
+}
+#lista {padding: 0;}
+#lista li {
+    list-style: none;
+    height: 20px;
+    margin: 4px;
+}
+.lista button {
+    margin-left: 4px;
+    float: right;
+}
+
+#ruleta {
+    border: solid 10px palegreen;
+    box-shadow: 15px 10px 20px 3px greenyellow;
+    border-radius: 22px;
+    right: 0px;
+    top: 0;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+}
+
+ul.ruleta {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 32px;
+    font-family: monospace;
+    text-shadow:  1px 2px 3px darkred;
+}
+.spin {
+    animation: spin 3s linear infinite forwards;
+}
+.spin-end {
+    animation: spin-end 3s ease-out forwards;
+}
+#ruleta .ganador {
+    outline: solid 2px red;
+    box-shadow: 5px 5px 7px 2px darkred;
+    border-radius: 5px;
+}
+ul.ruleta li {
+    margin: 12px;
+}
+ul.ruleta li button {
+    display: none;
+}
+
+@keyframes spin {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100%);
+    }
+}
+@keyframes spin-end {
+    to{
+        transform: translateY(-95%);
+    }
+}
