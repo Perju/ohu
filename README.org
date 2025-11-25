@@ -3,3 +3,14 @@
 Conjunto de archivitos html que sirven de herramientas para OBS
 
 se pueden ver desde la url https://perju.github.io/ohu/
+
+* Pantallas
+** Chat
+Se ve el chat que este configurado en el archivo login-data.js
+** Reloj
+Un reloj estático y otro que rota entre uno de los de la lista.
+** Ruleta
+Se crea una lista de elementos y se elije uno aleatoriamente.
+** Temporizador
+Una cuenta atrás personalizable.
+
