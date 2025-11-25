@@ -12,60 +12,7 @@
     />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <!-- Place favicon.ico in the root directory -->
-    <style>
-      * {
-        margin: 0px;
-        padding: 0px;
-      }
-      body {
-        background-color: black;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        flex-flow: column;
-      }
-      form {
-        flex-flow: column;
-      }
-      .title h1,
-      .timer {
-        font-size: 100px;
-        font-family: monospace;
-        text-shadow: black 5px 7px;
-        transition: opacity 0.5s ease-out;
-        opacity: 1;
-      }
-      .timer.hidden { opacity: 0; }
-      .title h1 {
-        font-size: 50px;
-        margin-bottom: -20px;
-      }
-      .timer {
-        position: absolute;
-        top: 40px;
-      }
-      #foreign {
-        top: 180px;
-      }
-      .form {
-        position: absolute;
-        top: 170px;
-      }
-      .form input[name="titulo"] {
-        width: 280px;
-      }
-      form,
-      .form .form-time {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .form .form-time input {
-        display: inline-block;
-        width: 90px;
-      }
-    </style>
+    <link rel="stylesheet" href="./reloj.css" type="text/css" media="screen" />
     <script>
         const paises = [
             // España (Referencia)

@@ -1,0 +1,89 @@
+const paises = [
+    // España (Referencia)
+    // { locale: 'es-ES', bandera: 'es', timeZone: 'Europe/Madrid' },
+
+    // Para ErVaquilla
+    { locale: "en-GB", bandera: "gb", timeZone: "Europe/London" },
+
+    // América del Norte y Central
+    { locale: "es-MX", bandera: "mx", timeZone: "America/Mexico_City" },
+    //{ locale: 'es-GT', bandera: 'gt', timeZone: 'America/Guatemala' },
+    //{ locale: 'es-HN', bandera: 'hn', timeZone: 'America/Tegucigalpa' },
+    //{ locale: 'es-SV', bandera: 'sv', timeZone: 'America/El_Salvador' },
+    //{ locale: 'es-NI', bandera: 'ni', timeZone: 'America/Managua' },
+    //{ locale: 'es-CR', bandera: 'cr', timeZone: 'America/Costa_Rica' },
+    { locale: "es-PA", bandera: "pa", timeZone: "America/Panama" },
+    { locale: "es-CU", bandera: "cu", timeZone: "America/Havana" },
+    //{ locale: 'es-DO', bandera: 'do', timeZone: 'America/Santo_Domingo' },
+    //{ locale: 'es-PR', bandera: 'pr', timeZone: 'America/Puerto_Rico' }, // Puerto Rico
+
+    // América del Sur
+    { locale: "es-CO", bandera: "co", timeZone: "America/Bogota" },
+    { locale: "es-VE", bandera: "ve", timeZone: "America/Caracas" },
+    //{ locale: 'es-EC', bandera: 'ec', timeZone: 'America/Guayaquil' },
+    { locale: "es-PE", bandera: "pe", timeZone: "America/Lima" },
+    //{ locale: 'es-BO', bandera: 'bo', timeZone: 'America/La_Paz' },
+    //{ locale: 'es-PY', bandera: 'py', timeZone: 'America/Asuncion' },
+    { locale: "es-CL", bandera: "cl", timeZone: "America/Santiago" },
+    {
+        locale: "es-AR",
+        bandera: "ar",
+        timeZone: "America/Argentina/Buenos_Aires",
+    },
+    { locale: "es-UY", bandera: "uy", timeZone: "America/Montevideo" },
+
+    // África
+    { locale: "es-GQ", bandera: "gq", timeZone: "Africa/Malabo" }, // Guinea Ecuatorial
+];
+
+// Para personalizar el locale local
+const localCountry = {
+    locale: "es-ES",
+    bandera: "es",
+    timeZone: "Europe/Madrid",
+};
+
+// resto de cosas
+let foreingCountry = paises[Math.floor(Math.random() * paises.length)];
+window.onload = function () {
+    const arEG = new Intl.Locale("es-AR");
+    let localTimer = document.getElementById("local");
+    let foreingTimer = document.getElementById("foreign");
+    updateTimer(localTimer, ...getTimeLocale(localCountry));
+    updateTimer(foreingTimer, ...getTimeLocale(foreingCountry));
+    // Actualizar la hora
+    setInterval(function () {
+        updateTimer(localTimer, ...getTimeLocale(localCountry));
+        updateTimer(foreingTimer, ...getTimeLocale(foreingCountry));
+        foreingTimer.classList.remove("hidden");
+    }, 1000);
+    // Cambiar de bandera
+    setInterval(function () {
+        foreingTimer.classList.add("hidden");
+        setTimeout(() => {
+            foreingCountry = paises[Math.floor(Math.random() * paises.length)];
+        }, 500);
+    }, 10000);
+};
+
+// actualizar el temporizador
+function updateTimer(_elemento, pais, _horas, _minutos, _segundos) {
+    _elemento.getElementsByClassName("fi")[0].className = "fi fi-" + pais;
+    _elemento.getElementsByClassName("hr")[0].innerHTML = _horas;
+    _elemento.getElementsByClassName("min")[0].innerHTML = _minutos;
+    _elemento.getElementsByClassName("seg")[0].innerHTML = _segundos;
+}
+
+// obtener la hora actual para el timeZone en locale
+function getTimeLocale(data) {
+    const event = new Date(Date.now());
+    console.log(data, localCountry);
+    return [
+        data.bandera,
+        ...event
+            .toLocaleTimeString(localCountry.locale, {
+                timeZone: data.timeZone,
+            })
+            .split(":"),
+    ];
+}
