@@ -1,0 +1,32 @@
+body {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.title { display: block; }
+.title h1,
+.title h2 {
+    display: inline;
+    margin: 4px;
+    font-family: "Comic"; 
+}
+
+.content {
+    position: relative;
+    width: 600px;
+}
+.content ul {
+    left: 0;
+    padding: 12px;
+    list-style: none;
+    position: absolute;
+    border: solid 1px black;
+    border-radius: 15px;
+}
+.content ul li {
+    position: relative;
+}
+
+
