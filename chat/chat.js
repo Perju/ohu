@@ -65,12 +65,16 @@ function printMessage(msg) {
     li.appendChild(span);
     li.appendChild(text);
     // li.textContent = `${tags['display-name']}: ${message}`;
+    setTimeout(()=>{
+        li.classList.add("hidden");
+    }, 3000);
     lista.appendChild(li);
     if (lista.children.length > maxMessages) {
         lista.removeChild(lista.firstElementChild);
     }
 }
-
+console.log(window);
+const tmi = window.tmi;
 /**
  * Aqui empieza el chat de twitch
  * * * * * * * * * * * * * * * * * * * */

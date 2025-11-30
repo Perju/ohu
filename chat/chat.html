@@ -5,29 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chat de Twitch</title>
+  <link rel="stylesheet" href="./chat.css" type="text/css" media="screen" />
   <style>
-    /* body {background: #333;} */
-    body, ul {margin: 0; padding: 0;}
-    body {
-      height: 100vh;
-      width: 100vw;
-    }
-    ul {
-      list-style-type: none;
-      position: absolute;
-      bottom: 0;
-    }
-
-    #mensajes li {
-      font-family: monospace;
-      color: white;
-      text-shadow: .5px .5px 1px black;
-    }
-
-    #mensajes li span {
-      font-weight: bold;
-      margin-right: .3em;
-    }
   </style>
 </head>
 
@@ -37,10 +16,10 @@
     <!-- <li><span style="color: rgb(116, 84, 147);">Perju_Gatar:</span>asdf</li> -->
   </ul>
 
-  <script src="//cdn.tmijs.org/js/latest/1.x/tmi.min.js"></script>
+  <script src="./tmi.min.js"></script>
   <script src="./login-data.js"></script>
   <script src="./utils.js"></script>
-  <script type="module" src="chat.js"></script>
+  <script src="./chat.js"></script>
 </body>
 
 </html>
