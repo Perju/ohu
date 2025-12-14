@@ -22,7 +22,7 @@ function agregar() {
     li.appendChild(button);
 
     // limpiar el nombre del formulario
-    nombre.value = "";
+    nombreElement.value = "";
     
     // agregarlo a la lista
     agregar_a_la_lista(li);
