@@ -1,6 +1,6 @@
 let listica;
 
-const botonClickBorrar = (event) => {
+function botonClickBorrar(event) {
     console.log(event.target.parentElement);
     event.target.parentElement.remove();
 }
@@ -18,7 +18,7 @@ function agregar() {
     // agregar boton para eliminar
     let button = document.createElement('button');
     button.textContent = "X";
-    button.onclick = botonClickBorrar;
+    button.setAttribute('onclick', 'botonClickBorrar(event)');
     li.appendChild(button);
 
     // limpiar el nombre del formulario
